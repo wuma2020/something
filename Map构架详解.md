@@ -4,12 +4,12 @@
 
 ---
 
-> 欢迎 `start` 跪求 `start`
-<a class="social github" target="blank" href="https://github.com/static-mkk/wangkuiwu"><img src="http://www.kkcoder.cn:8080/blog/comment/gitPic.png"/></a>
+> 欢迎 [start][1] 跪求 [start][2]
+[<img src="http://www.kkcoder.cn:8080/blog/comment/gitPic.png"/>][3]
 
 ---
 # map构架图
-![Map构架图][2]
+![Map构架图][4]
 
 
 > map结构简介
@@ -96,4 +96,6 @@ Map接口的特点:
 
 
   [1]: https://github.com/static-mkk/wangkuiwu
-  [2]: http://wangkuiwu.github.io/media/pic/java/collection/collection09.jpg
+  [2]: https://github.com/static-mkk/wangkuiwu
+  [3]: https://github.com/static-mkk/wangkuiwu
+  [4]: http://wangkuiwu.github.io/media/pic/java/collection/collection09.jpg
