@@ -1,7 +1,7 @@
 ﻿# HashMap详解
 
 标签： java8源码
-> 欢迎 [start][1]  [<img src="http://www.kkcoder.cn:8080/blog/comment/gitPic.png"/>][2]
+> 欢迎 [start][1]  
 
 ----------
 # HashMap的关系图
@@ -181,7 +181,7 @@ public V put(K key, V value) { //调用putVal(int hash, K key, V value, boolean 
 
 
   [1]: https://github.com/static-mkk/wangkuiwu
-  [2]: https://github.com/static-mkk/wangkuiwu
+ 
   [3]: https://upload-images.jianshu.io/upload_images/3778985-e6d288eb43812bcd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700
   [4]: https://www.jianshu.com/p/30bffabb2e5c
   [5]: https://github.com/vzardlloo/jdk_source_learning/blob/master/src/HashMap.md
