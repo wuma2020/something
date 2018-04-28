@@ -20,8 +20,8 @@
   - [Map构架][8]
   - [HashMap详解][9]
      - [HashMap put逻辑总结][10]
- - [HashMap与HashTable比较][11]
- - [HashSet介绍][12]
+  - [HashMap与HashTable比较][11]
+  - [HashSet介绍][12]
     
 - I/O 
     - [PipedOutputStream and PipedInputStream 详解][13]
