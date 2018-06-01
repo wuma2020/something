@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Git shell 基本操作</title>
+</head>
+<body>
+<div id="wmd-preview" class="wmd-preview"><div class="md-section-divider"></div><div class="md-section-divider"></div><h1 data-anchor-id="1hh2" id="git-shell-基本操作">Git shell 基本操作</h1><p data-anchor-id="sww9"><code class="code-black">Gitshell</code></p><hr><div class="md-section-divider"></div><h1 data-anchor-id="1qnd" id="简单了解一下">简单了解一下</h1><blockquote data-anchor-id="osxg" class="black-blockquote">
+  <p>首先看一下图.</p>
+</blockquote><p data-anchor-id="xqi4"><img src="http://www.ruanyifeng.com/blogimg/asset/2014/bg2014061202.jpg" alt="此处输入图片的描述"></p><pre data-anchor-id="qity" class="code-black"><code class="code-black">1.Remote : 远程仓库.就是github主页上显示的仓库.
+2.Repository : 本地仓库.先把文件放到本地仓库，再可以放到远程仓库.
+3.workspace : 工作区.就是本地的文件夹.(.git文件夹同级目录的地方，就是工作区.)
+</code></pre><div class="md-section-divider"></div><h1 data-anchor-id="gqp2" id="下面开始具体的提交文件到远程仓库的教程">下面开始具体的提交文件到远程仓库的教程</h1><blockquote data-anchor-id="5rms" class="black-blockquote">
+  <ol>
+  <li>git init  (初始化workspace,即，在该路径生成一个 .git 文件夹，相当于建立的一个 workspace 。) <br>
+  示例：<img src="https://raw.githubusercontent.com/static-mkk/learn_note/master/pic/init.png" alt="此处输入图片的描述"></li>
+  </ol>
+</blockquote><hr><blockquote data-anchor-id="ea8w" class="black-blockquote">
+  <p>2.git add 文件（将需要上传的文件放到 该目录位置，然后 执行add） <br>
+  示例：<img src="https://raw.githubusercontent.com/static-mkk/learn_note/master/pic/add.png" alt="此处输入图片的描述"></p>
+</blockquote><div class="md-section-divider"></div><hr><blockquote data-anchor-id="lw1w" class="black-blockquote">
+  <p>3 . git commit -m "提交的文件的介绍信息"  <br>
+      示例： <br>
+  <img src="https://raw.githubusercontent.com/static-mkk/learn_note/master/pic/commit.png" alt="此处输入图片的描述"></p>
+</blockquote><hr><blockquote data-anchor-id="bsq0" class="black-blockquote">
+  <p>4 . git remote add origin (server 是你的远程仓库的地址，<a href="https://raw.githubusercontent.com/static-mkk/learn_note/master/pic/remote.png" target="_blank">在仓库的右上角</a>可以看到。把本地仓库和远程仓库关联) <br>
+      示例：<img src="https://raw.githubusercontent.com/static-mkk/learn_note/master/pic/remote2.png" alt="此处输入图片的描述"></p>
+</blockquote><div class="md-section-divider"></div><hr><blockquote data-anchor-id="yht0" class="black-blockquote">
+  <p>5 . git push origin master(提交到远程仓库的 master 分支，也就是主分支) <br>
+      示例：<img src="https://raw.githubusercontent.com/static-mkk/learn_note/master/pic/push.png" alt="此处输入图片的描述"></p>
+</blockquote><div class="md-section-divider"></div><hr><p data-anchor-id="90o4"># 演示git clone</p><blockquote data-anchor-id="00ar" class="black-blockquote">
+  <p>一般情况下，我是使用clone来把远程仓库克隆到本地，这样的话，该本地仓库会直接有 .git文件，以及，不需要再remote add .也就是说， 不需要执行 步骤 1 和 4.其他操作相同. <br>
+      　　　演示： <br>
+  　　　<img src="https://raw.githubusercontent.com/static-mkk/learn_note/master/pic/clone.png" alt="此处输入图片的描述"></p>
+</blockquote><div class="md-section-divider"></div><h1 data-anchor-id="gw8w" id="关于-git-的-links">关于 git 的 links</h1><blockquote data-anchor-id="xkg4" class="black-blockquote">
+  <p>上面的其实基本够用，下面这些事详细的介绍.</p>
+</blockquote><ol data-anchor-id="xvbt">
+<li><a href="http://www.bootcss.com/p/git-guide/" target="_blank">http://www.bootcss.com/p/git-guide/</a></li>
+<li><a href="https://marklodato.github.io/visual-git-guide/index-zh-cn.html" target="_blank">https://marklodato.github.io/visual-git-guide/index-zh-cn.html</a></li>
+</ol></div>
+</body>
+</html>
