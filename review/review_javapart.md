@@ -9,9 +9,7 @@
     1.String 的类定义是 public final class String 。 其内部的存储 value的是 public final char[] value.所以，其是线程安全的，并且是不可变的。因为是final的。
     2.StringBuffer 的类定义为 ： public final class StringBuffer。 其内部存储数据的是 private transient char[] toStringCache。 transient的目的是使该变量不被序列化。因为是 char[] toStringCache，所以内容是可变的。StringBuffer几乎所有方法都加上了synchronized关键字，故事线程安全的。
     3.StringBuilder是线程不安全的。且内容可变。 故，如果不是多线程，StringBuilder效率会高于StringBuffer.
-    
-（3）hashtable和hashmap的区别？
-    
+
     
 （4） linkedlist的实现？
     linkedList的内部是用一个双向链的结构来完成操作的。即一个内部是由静态内部类Node<E> ，其中有 E item 和 Node<E> next 和 Node<E> prev 三个成员变量.而类LinkedList有两个Node<E> 的成员变量 first 和 last. 每次添加元素，就把last设置成新元素对应的节点，并把之前的last的next节点，设置成新节点。
@@ -52,8 +50,90 @@
     抽象类：抽象类必须有abstract 关键字来修饰类，如 abstract class Test{}, 抽象类中可以没有抽象方法，而有抽象方法的类一定是抽象类。抽象类也是不能实例化的。抽象类被继承时，子类必须实现抽象类中的抽象方法。且抽象方法的可以有方法体，即自己实现该方法，接口不行。抽象类中的抽象方法不能是private，因为抽象类就是让子类来继承的，并且要重写其抽象方法的，所一相应的权限应该是要限制的。不能是provite.抽象类可以有构造函数，而接口没有。
     接口的使用会更加的灵活，但是如果接口中的方法有所改变，那么所有实现该接口的类都要修改。而，抽象类中的抽象方法改变，只需要在抽象类中修改即可。而且抽象类比接口更快。
     
-
+（12）装箱和拆箱？
+    装箱：指的是将 基本类型 封装成 对应的 包装类型。如 int -> Interger ,long -> Long , byte -> Byte short —> Short ,boolean -> Biilean ,double -> Double ,char ->Character , float -> Float
+    拆箱：指的是相反操作.
+    例子： Integer i =0;
+            for(int j =0;j<=3333;j++){
+                i = i + 1;
+            }
+        这里的 + ，只能是基本类型，所以 每次 i + 1,会自动拆箱，而 赋值给i后，又自动装箱。所以，这里会有大量的无畏的装箱拆箱，因此，数据类型的使用一定要合适，避免浪费大量时间来装箱拆箱.
     
+（13） 泛型的特点？
+    泛型的使用: public static <K,V> V getValueByKey(K key,V value){}  //前面使用的< , >来声明K , V 类型.返回值为V类型.
+    泛型的特点：可以避免程序员手动的强制转换.但实际上，编译后，也是用了强制转换来达到保持类型一致的。而且这样做，在编译期间就可以发现类型错误信息。可读性也比较好。通常来说，如果Foo是Bar的子类型，G是一种带泛型的类型，则G<Foo>不是G<Bar>的子类型。
+    在使用泛型时，任何具体的类型都被擦除，唯一知道的是你在使用一个对象。比如：List<String>和List<Integer>在运行事实上是相同的类型。他们都被擦除成他们的原生类型，即List。因为编译的时候会有类型擦除，所以不能通过同一个泛型类的实例来区分方法。例子如下：
+        /*会导致编译时错误*/   
+        public class Erasure{  
+            public void test(List<String> ls){  
+                System.out.println("Sting");  
+            }  
+            public void test(List<Integer> li){  
+                System.out.println("Integer");  
+            }  
+        } 
+    编译器实际上会把泛型类型，会在后面代码中自动强转成该类型，所以，不需要手动强转。因此，利用泛型也是会更加的灵活。
+
+（14）java中的集合类的关系图？
+(!http://wangkuiwu.github.io/media/pic/java/collection/collection01.jpg)[java集合关系图] 
+
+（15）HashMap 实现原理， 源码解析？
+    1.8的源码解析。https://blog.csdn.net/zxt0601/article/details/77413921
+
+（16）HashTable 实现原理  源码解析？
+（18）ConcurrentHashMap 实现原理？
+
+
+（17）ArrayList 和 Vector 以及 LinkedList的区别？
+    LinkedList是一个双向链表结构.线程不安全.适合于中间部位添加和删除.
+    ArrayList 是一个数组结构.线程不安全.适合于查询和修改，以及尾部的添加和删除.
+    Vector    是一个数组结构。但是关键的添加，删除等方法都已经用synchronized修饰，是线程安全的.适合于查询，以及尾部的添加和删除.
+
+
+（19）关于异常？
+    http://wangkuiwu.github.io/2012/04/14/exception/
+    
+（20）线程的各种状态？
+    5种状态。 
+    新建状态：在new 线程之后的状态.
+    就绪状态：在执行了start()方法之后，线程和其他线程等待cpu调用的状态。此时并没有执行线程的run()方法.
+    运行状态：当线程获取cpu的调度之后，线程就进入了运行状态，此时才是真正的执行run()方法.
+    阻塞状态：正在运行的线程暂时让出CPU。然后cpu可以处理其他的就绪线程。导致阻塞的原因有很多。此时线程并没有执行结束，而是暂停执行.
+                1.sleep() 2.等待获取某个对象的锁.  3.等待其他触发条件 condition 4. 在使用I/O流是导致阻塞.
+    死亡状态：run()方法执行结束，线程正常死亡。因为某些异常导致run()方法终止，而使线程死亡.
+（21）线程的终止的方法？
+    1.正常结束终止  
+    2.interrupt()终止
+    3.自己设置一个flag，while循环判断，用于终止线程.
+    4.不安全的方法，直接stop()，resume()...
+    
+（22）synchronized 和 lock 的区别？
+    
+    
+（23）多线程进行线程交互？
+（24）sleep 和 wait的区别？
+    
+（25）产生死锁的原因？
+（26）什么是守护线程？
+（27）java线程池技术和原理？
+    参考文章：
+    http://www.importnew.com/19011.html
+    http://www.cnblogs.com/dolphin0520/p/3932921.html
+（28）java并发包concurrent及常用的类？
+    这个内容有点多，参考文章：
+    并发包诸类概览：http://www.raychase.net/1912
+    线程池：http://www.cnblogs.com/dolphin0520/p/3932921.html
+    锁：http://www.cnblogs.com/dolphin0520/p/3923167.html
+    集合：http://www.cnblogs.com/huangfox/archive/2012/08/16/2642666.html
+  
+（29） volatile关键字？
+（30）   IO和NIO区别？
+（31）序列化与反序列化？
+（32）Java类加载器及如何加载类(双亲委派)？
+    阅读文章：
+    https://www.ibm.com/developerworks/cn/java/j-lo-classloader/（推荐）
+    http://blog.csdn.net/zhoudaxia/article/details/35824249
+  
   
 （8） 别人整理的知识点。
     1. https://www.nowcoder.com/discuss/31667
