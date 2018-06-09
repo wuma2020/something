@@ -101,13 +101,26 @@
         } 
     编译器实际上会把泛型类型，会在后面代码中自动强转成该类型，所以，不需要手动强转。因此，利用泛型也是会更加的灵活。
 
+---
+
 （14）java中的集合类的关系图？
+
+    此图为jdk1.7的框架图
 
 ![此处输入图片的描述][1]
 
+---
+
+    此图为jdk1.8的框架图
+    
+![此处输入图片的描述][2]
+![此处输入图片的描述][3]
+
+---
+
 （15）HashMap 实现原理， 源码解析？
 
- >   1.8的源码解析。[https://blog.csdn.net/zxt0601/article/details/77413921][2]
+ >   1.8的源码解析。[https://blog.csdn.net/zxt0601/article/details/77413921][4]
 
 （16）HashTable 实现原理  源码解析？
 （18）ConcurrentHashMap 实现原理？
@@ -217,4 +230,6 @@ jvm部分
 
 
   [1]: http://wangkuiwu.github.io/media/pic/java/collection/collection01.jpg
-  [2]: http://wangkuiwu.github.io/media/pic/java/collection/collection01.jpg
+  [2]: http://xiuson.com/wp-content/uploads/2016/10/java_collections_framework.png
+  [3]: http://xiuson.com/wp-content/uploads/2016/10/map.png
+  [4]: http://wangkuiwu.github.io/media/pic/java/collection/collection01.jpg
