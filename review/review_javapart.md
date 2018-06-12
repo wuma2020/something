@@ -19,8 +19,8 @@
 
 （2）String 和StringBuffer的区别？
 
- >   1.String 的类定义是 public final class String 。 其内部的存储 value的是 public final char[] value.所以，其是线程安全的，并且是不可变的。因为是final的。
-    2.StringBuffer 的类定义为 ： public final class StringBuffer。 其内部存储数据的是 private transient char[] toStringCache。 transient的目的是使该变量不被序列化。因为是 char[] toStringCache，所以内容是可变的。StringBuffer几乎所有方法都加上了synchronized关键字，故事线程安全的。
+ >   1.String 的类定义是 public final class String 。 其内部的存储 value的是 public final char[] value.所以，其是线程不安全的，并且是不可变的。因为是final的。
+    2.StringBuffer 的类定义为 ： public final class StringBuffer。 其内部存储数据的是 private transient char[] toStringCache。 transient的目的是使该变量不被序列化。因为是 char[] toStringCache，所以内容是可变的。StringBuffer几乎所有方法都加上了synchronized关键字，故其线程安全的。
     3.StringBuilder是线程不安全的。且内容可变。 故，如果不是多线程，StringBuilder效率会高于StringBuffer.
 
     
@@ -135,7 +135,16 @@
 
 （19）关于异常？
 
->    http://wangkuiwu.github.io/2012/04/14/exception/
+>    推荐看这篇文章 [http://www.importnew.com/27348.html][5]
+
+    我这里也简单整理一下常见的。
+   
+> * `ClassNotFoundException`   `IOException ` `InterruptedException`  `SQLException`
+* `ClassCastException`  `NullPointerException ` `IndexOutOfBoundsException`
+* `OutOfMemoryError`
+
+    类没找到异常  IO流异常 阻断异常 sql异常 类强转异常 空指针异常 下标越界异常 内存不够错误       
+
     
 （20）线程的各种状态？
 
@@ -208,7 +217,10 @@
     2.反序列化：把字节序列恢复成对象的过程称为反序列化.
     应用场景：当对象需要在网络上传输 或 需要写在硬盘上时，需要进行序列化。因为数据都是以二进制的形式在网上传输，或写到硬盘的。所以需要序列化。读取时，方需要反序列化.
    
-   
+（32）String api
+    
+待补-------
+
    ----
    
 
@@ -222,6 +234,28 @@ jvm部分
     https://www.ibm.com/developerworks/cn/java/j-lo-classloader/（推荐）
     http://blog.csdn.net/zhoudaxia/article/details/35824249
   
+ 
+ 
+ ----
+ 
+SQL语句部分
+====
+ 
+ ---
+ 
+ 常用的sql语句：
+ 
+    1.创建名为name的数据库：create database name  
+    2.删除名为name的数据库：drop database name
+    3.选择名为name的数据库：use name
+    4.创建一张表并写属性名和属性值：create table name （`colum_name` colum_type）
+    5.删除名为name的表：drop table name
+    6.insert into name (属性名1，属性名2) values (属性名1值，属性名2值)
+    7.从名为name的表中查询所有数据select * from name
+    8.更新名为name的表的指定字段值：update name set 属性名1=新值 ， 属性名2=新值 where 条件
+    9.删除名为name表指定要求的数据：delete  from name where 条件
+   
+ ---------
   
 （8） 别人整理的知识点。
     1. https://www.nowcoder.com/discuss/31667
@@ -233,3 +267,4 @@ jvm部分
   [2]: http://xiuson.com/wp-content/uploads/2016/10/java_collections_framework.png
   [3]: http://xiuson.com/wp-content/uploads/2016/10/map.png
   [4]: http://wangkuiwu.github.io/media/pic/java/collection/collection01.jpg
+  [5]: http://www.importnew.com/27348.html
