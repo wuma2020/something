@@ -49,11 +49,14 @@
     - [Condition的使用以及其生产消费线程示例][29] 
     - [condition实现线程顺序执行][30]
 
+- JUC锁
+    -   [JUC之公平锁详解1][31]
+
 ---
 
 # java知识点整理
 
-> [请点这里][31]
+> [请点这里][32]
 
     整理关于java基础知识点，jvm相关知识点，java框架相关知识点.会持续更新.
 
@@ -81,9 +84,9 @@
 前面有些使用 `.java` 文件写的，后续会改成 `markdown` 语法的文本文件,这样看起来会比较清晰.
 
 
-> 另外还要附上 [wangkuiwu][32] 的blog地址,其实基于 java 1.6的源码做分析的.几乎是讲解了整个源码.内容更全.
+> 另外还要附上 [wangkuiwu][33] 的blog地址,其实基于 java 1.6的源码做分析的.几乎是讲解了整个源码.内容更全.
 
-> 另附 CSDN [潘威威][33] 的源码解析 blog
+> 另附 CSDN [潘威威][34] 的源码解析 blog
 
 
 
@@ -124,6 +127,7 @@
   [28]: https://mp.csdn.net/mdeditor/79920177
   [29]: https://github.com/static-mkk/java8SourceLearn/blob/master/thread/Condition%E7%9A%84%E4%BD%BF%E7%94%A8%E4%BB%A5%E5%8F%8A%E5%85%B6%E7%94%9F%E4%BA%A7%E6%B6%88%E8%B4%B9%E7%BA%BF%E7%A8%8B%E7%A4%BA%E4%BE%8B.md
   [30]: https://github.com/static-mkk/java8SourceLearn/blob/master/thread/condition%E5%AE%9E%E7%8E%B0%E7%BA%BF%E7%A8%8B%E9%A1%BA%E5%BA%8F.md
-  [31]: https://github.com/static-mkk/something/blob/master/review/review_javapart.md
-  [32]: http://wangkuiwu.github.io
-  [33]: http://blog.csdn.net/panweiwei1994
+  [31]: https://github.com/static-mkk/something/blob/master/thread/JUC%E4%B9%8B%E5%85%AC%E5%B9%B3%E9%94%81%E8%AF%A6%E8%A7%A31.md
+  [32]: https://github.com/static-mkk/something/blob/master/review/review_javapart.md
+  [33]: http://wangkuiwu.github.io
+  [34]: http://blog.csdn.net/panweiwei1994
