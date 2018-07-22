@@ -65,7 +65,7 @@
 > 待加
 
 # spring 相关
-> 待加
+> 1. [spring IOC 简易版][34]  非常推荐学习
 
 # 其他技术点
 
@@ -81,9 +81,9 @@
 前面有些使用 `.java` 文件写的，后续会改成 `markdown` 语法的文本文件,这样看起来会比较清晰.
 
 
-> 另外还要附上 [wangkuiwu][34] 的blog地址,其基于 java 1.6 或 1.7 的源码做分析的.几乎是讲解了整个源码.内容更全.
+> 另外还要附上 [wangkuiwu][35] 的blog地址,其基于 java 1.6 或 1.7 的源码做分析的.几乎是讲解了整个源码.内容更全.
 
-> 另附 CSDN [潘威威][35] 的源码解析 blog
+> 另附 CSDN [潘威威][36] 的源码解析 blog
 
 
 
@@ -127,5 +127,6 @@
   [31]: https://github.com/static-mkk/something/blob/master/thread/JUC%E4%B9%8B%E5%85%AC%E5%B9%B3%E9%94%81%E8%AF%A6%E8%A7%A31.md
   [32]: https://github.com/static-mkk/something/blob/master/review/review_javapart.md
   [33]: https://github.com/static-mkk/something/blob/master/review/java_reflect.md
-  [34]: http://wangkuiwu.github.io
-  [35]: http://blog.csdn.net/panweiwei1994
+  [34]: https://github.com/static-mkk/something/tree/master/spring/spring-ioc
+  [35]: http://wangkuiwu.github.io
+  [36]: http://blog.csdn.net/panweiwei1994
