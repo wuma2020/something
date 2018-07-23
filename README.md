@@ -67,11 +67,16 @@
 # spring 相关
 > 1. [spring IOC 简易版][34]  非常推荐学习
 
-# 其他技术点
+# MYSQL
 
-> MYSQL 相关
-> shiro 相关
-> 检索相关
+> mysql 
+
+# shiro
+> [shiro 整合 spring][35] 
+
+# 检索
+
+> 检索知识点
 
 。。。
 
@@ -81,9 +86,9 @@
 前面有些使用 `.java` 文件写的，后续会改成 `markdown` 语法的文本文件,这样看起来会比较清晰.
 
 
-> 另外还要附上 [wangkuiwu][35] 的blog地址,其基于 java 1.6 或 1.7 的源码做分析的.几乎是讲解了整个源码.内容更全.
+> 另外还要附上 [wangkuiwu][36] 的blog地址,其基于 java 1.6 或 1.7 的源码做分析的.几乎是讲解了整个源码.内容更全.
 
-> 另附 CSDN [潘威威][36] 的源码解析 blog
+> 另附 CSDN [潘威威][37] 的源码解析 blog
 
 
 
@@ -128,5 +133,6 @@
   [32]: https://github.com/static-mkk/something/blob/master/review/review_javapart.md
   [33]: https://github.com/static-mkk/something/blob/master/review/java_reflect.md
   [34]: https://github.com/static-mkk/something/tree/master/spring/spring-ioc
-  [35]: http://wangkuiwu.github.io
-  [36]: http://blog.csdn.net/panweiwei1994
+  [35]: https://github.com/static-mkk/something/tree/master/shiro_about
+  [36]: http://wangkuiwu.github.io
+  [37]: http://blog.csdn.net/panweiwei1994
