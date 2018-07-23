@@ -56,30 +56,33 @@
 
 # java基础知识点整理
 
-> [java基础知识点整理][32]
+1. [java基础知识点整理][32]
 
 # java 反射
-> 1.[java reflect 使用介绍][33]
+ 1. [java reflect 使用介绍][33]
 
 # jvm 
-> 待加
+1. 待加
 
 # spring 相关
-> 1. [spring IOC 简易版][34]  非常推荐学习
+1. [spring IOC 简易版][34]  非常推荐学习
 
 # MYSQL
 
-> mysql 
+ 1. mysql 
+ 
 
 # shiro
-> [shiro 整合 spring][35] 
-> [shiro 自定义 realm demo][36]
+ 1. [shiro 整合 spring][35] 
+ 2. [shiro 自定义 realm demo][36]
 
 # 检索
 
-> 检索知识点
+1. 检索知识点
 
-。。。
+---
+
+         better  is enough!
 
 ---
 
