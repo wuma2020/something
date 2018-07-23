@@ -73,6 +73,7 @@
 
 # shiro
 > [shiro 整合 spring][35] 
+> [shiro 自定义 realm demo][36]
 
 # 检索
 
@@ -86,9 +87,9 @@
 前面有些使用 `.java` 文件写的，后续会改成 `markdown` 语法的文本文件,这样看起来会比较清晰.
 
 
-> 另外还要附上 [wangkuiwu][36] 的blog地址,其基于 java 1.6 或 1.7 的源码做分析的.几乎是讲解了整个源码.内容更全.
+> 另外还要附上 [wangkuiwu][37] 的blog地址,其基于 java 1.6 或 1.7 的源码做分析的.几乎是讲解了整个源码.内容更全.
 
-> 另附 CSDN [潘威威][37] 的源码解析 blog
+> 另附 CSDN [潘威威][38] 的源码解析 blog
 
 
 
@@ -134,5 +135,6 @@
   [33]: https://github.com/static-mkk/something/blob/master/review/java_reflect.md
   [34]: https://github.com/static-mkk/something/tree/master/spring/spring-ioc
   [35]: https://github.com/static-mkk/something/tree/master/shiro_about
-  [36]: http://wangkuiwu.github.io
-  [37]: http://blog.csdn.net/panweiwei1994
+  [36]: https://github.com/static-mkk/something/tree/master/shiro_about/shiro-customRealm
+  [37]: http://wangkuiwu.github.io
+  [38]: http://blog.csdn.net/panweiwei1994
