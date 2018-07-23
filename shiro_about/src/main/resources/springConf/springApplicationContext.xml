@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--spring 的 xml 配置文件-->
+
+    <!--创建shiro的filter -->
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean" >
+        <property name="securityManager" ref="securityManager"/>
+        <property name="loginUrl" value="login.html"/>
+        <property name="unauthorizedUrl" value="403.html"/>
+        <property name="filterChainDefinitions" >
+            <value>
+                /login.html = anon
+                /subLogin = anon
+                /* = authc
+            </value>
+        </property>
+    </bean>
+
+    <!--创建 securitymanager bean-->
+    <bean id="securityManager" class="org.apache.shiro.mgt.DefaultSecurityManager">
+        <property name="realm" ref="realm"/>
+    </bean>
+
+    <!--创建 realm  对象-->
+    <bean id="realm" class="cn.kkcoder.realm.MyRealm">
+        <property name="credentialsMatcher" ref="credentialsMatcher"/>
+    </bean>
+
+    <!--shrio 的 加密算法-->
+    <bean  id="credentialsMatcher" class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+        <property name="hashAlgorithmName" value="md5"/>
+        <property name="hashIterations" value="1"/>
+    </bean>
+
+</beans>
