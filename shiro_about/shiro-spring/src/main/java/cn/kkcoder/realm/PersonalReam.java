@@ -1,14 +1,20 @@
 package cn.kkcoder.realm;
 
+import cn.kkcoder.dao.UserDao;
+import cn.kkcoder.domain.User;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.SimpleAuthenticationInfo;
+import org.apache.shiro.authc.credential.CredentialsMatcher;
+import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthenticatingRealm;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
+import org.apache.shiro.util.ByteSource;
+import org.springframework.beans.factory.annotation.Autowired;
 import sun.security.provider.MD5;
 
 import java.util.HashMap;
@@ -21,12 +27,12 @@ import java.util.Set;
  */
 public class PersonalReam  extends AuthorizingRealm {
 
-    Map<String,String> userMap = new HashMap<String,String>(16);
-    {
 
-        userMap.put("mkk","123456");
-        super.setName("PersonRealm");
-    }
+
+    static String KEY = "mkk";
+   //这里注入userDao
+    @Autowired
+    private UserDao userDao;
 
     //这个是用来做授权的方法
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
@@ -77,8 +83,22 @@ public class PersonalReam  extends AuthorizingRealm {
             return null;
         }
 
+        /*
+
+        //如果spring中没有注入凭证匹配器，这里可以手动设置一个
+        CredentialsMatcher credentialsMatcher = new HashedCredentialsMatcher();
+        //设置加密算法
+        ((HashedCredentialsMatcher) credentialsMatcher).setHashAlgorithmName("md5");
+        //设置加密次数
+        ((HashedCredentialsMatcher) credentialsMatcher).setHashIterations(1);
+        super.setCredentialsMatcher(credentialsMatcher);
+
+        */
+
         // 这里说明用户名和密码都存在，所以创建一个AuthenticationInfo对象来用于返回，并设置好用户名和密码
         SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(username,password,"PersonRealm");
+        //设置 salt
+        authenticationInfo.setCredentialsSalt(ByteSource.Util.bytes(KEY.getBytes()));
         return authenticationInfo;
     }
 
@@ -88,6 +108,10 @@ public class PersonalReam  extends AuthorizingRealm {
      * @return
      */
     private String getPasswordByUserName(String username) {
-        return userMap.get(username);
+        User user = userDao.getPasswordByUsername(username);
+        if(user != null){
+            return user.getPassword();
+        }
+        return null;
     }
 }

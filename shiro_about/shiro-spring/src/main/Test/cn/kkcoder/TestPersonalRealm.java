@@ -3,6 +3,7 @@ package cn.kkcoder;
 import cn.kkcoder.realm.PersonalReam;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.crypto.hash.Md5Hash;
 import org.apache.shiro.mgt.DefaultSecurityManager;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.subject.Subject;
@@ -39,4 +40,11 @@ public class TestPersonalRealm {
         subject.checkRole("admin");//验证是否有admin角色数据
         subject.checkPermission("user:delete");//验证是否a有user：delete权限数据
     }
+
+    @Test
+    public void getAfterMD5(){
+        Md5Hash md5Hash = new Md5Hash("123456","mkk");
+        System.out.println(md5Hash.toString());
+    }
+
 }

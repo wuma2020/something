@@ -3,8 +3,10 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!--spring 的 xml 配置文件-->
+    <!--引进来spring dao 的配置文件-->
+    <import resource="spring-dao.xml"/>
 
+    <!--spring 的 xml 配置文件-->
     <!--创建shiro的filter -->
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean" >
         <property name="securityManager" ref="securityManager"/>
@@ -29,15 +31,15 @@
 
     <!--创建 realm  对象-->
     <bean id="realm" class="cn.kkcoder.realm.PersonalReam">
-        <!--<property name="credentialsMatcher" ref="credentialsMatcher"/>-->
+        <property name="credentialsMatcher" ref="credentialsMatcher"/>
     </bean>
 
     <!--shrio 的 加密算法
-                            加密部分暂时不设置
+            加密的salt在PersonalRealm中设置了.
     -->
-    <!--<bean  id="credentialsMatcher" class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">-->
-        <!--<property name="hashAlgorithmName" value="md5"/>-->
-        <!--<property name="hashIterations" value="1"/>-->
-    <!--</bean>-->
+    <bean  id="credentialsMatcher" class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+        <property name="hashAlgorithmName" value="md5"/>
+        <property name="hashIterations" value="1"/>
+    </bean>
 
 </beans>

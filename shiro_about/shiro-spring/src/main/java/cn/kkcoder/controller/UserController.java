@@ -28,7 +28,7 @@ public class UserController {
             //这里认证错误会报错，所以try catch 一下
             subject.login(usernamePasswordToken);
         }catch (Exception e){
-            System.out.println("登录失败");
+           e.printStackTrace();
             return "登录失败";
         }
         return "登录成功";
