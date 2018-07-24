@@ -11,5 +11,5 @@
     <mvc:annotation-driven />
 
     <!--排除静态文件的验证-->
-    <mvc:resources location="*" mapping="/*" />
+    <mvc:resources location="/" mapping="/*" />
 </beans>

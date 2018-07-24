@@ -19,20 +19,25 @@
         </property>
     </bean>
 
-    <!--创建 securitymanager bean-->
-    <bean id="securityManager" class="org.apache.shiro.mgt.DefaultSecurityManager">
+    <!--创建 securitymanager bean
+        注意这里的 class 的路径是 org.apache.shiro.web.mgt.DefaultWebSecurityManager    这个是web包下的
+                              不是 org.apache.shiro.mgt.DefaultSecurityManager
+    -->
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
         <property name="realm" ref="realm"/>
     </bean>
 
     <!--创建 realm  对象-->
-    <bean id="realm" class="cn.kkcoder.realm.MyRealm">
-        <property name="credentialsMatcher" ref="credentialsMatcher"/>
+    <bean id="realm" class="cn.kkcoder.realm.PersonalReam">
+        <!--<property name="credentialsMatcher" ref="credentialsMatcher"/>-->
     </bean>
 
-    <!--shrio 的 加密算法-->
-    <bean  id="credentialsMatcher" class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
-        <property name="hashAlgorithmName" value="md5"/>
-        <property name="hashIterations" value="1"/>
-    </bean>
+    <!--shrio 的 加密算法
+                            加密部分暂时不设置
+    -->
+    <!--<bean  id="credentialsMatcher" class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">-->
+        <!--<property name="hashAlgorithmName" value="md5"/>-->
+        <!--<property name="hashIterations" value="1"/>-->
+    <!--</bean>-->
 
 </beans>
