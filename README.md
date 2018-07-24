@@ -137,7 +137,7 @@
   [32]: https://github.com/static-mkk/something/blob/master/review/review_javapart.md
   [33]: https://github.com/static-mkk/something/blob/master/review/java_reflect.md
   [34]: https://github.com/static-mkk/something/tree/master/spring/spring-ioc
-  [35]: https://github.com/static-mkk/something/tree/master/shiro_about
+  [35]: https://github.com/static-mkk/something/tree/master/shiro_about/shiro-spring
   [36]: https://github.com/static-mkk/something/tree/master/shiro_about/shiro-customRealm
   [37]: http://wangkuiwu.github.io
   [38]: http://blog.csdn.net/panweiwei1994
