@@ -16,10 +16,17 @@
             <value>
                 /login.html = anon
                 /subLogin = anon
+                /testRoles1 = roles["admin","user"]
+                /testRoles = pFilter["admin","user"]
+                /testPermission = perms["user:delete"]
+                /testPermission1 = perms["user:delete","user:add"]
                 /* = authc
             </value>
         </property>
     </bean>
+
+    <!--注入自定义的filter-->
+    <bean id="pFilter" class="cn.kkcoder.filter.PersonalFilter"/>
 
     <!--创建 securitymanager bean
         注意这里的 class 的路径是 org.apache.shiro.web.mgt.DefaultWebSecurityManager    这个是web包下的

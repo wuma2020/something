@@ -23,7 +23,6 @@ public class UserController {
     public String subLogin(User user){
         Subject subject = SecurityUtils.getSubject();
         UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(user.getUsername(),user.getPassword());
-
         try {
             //这里认证错误会报错，所以try catch 一下
             subject.login(usernamePasswordToken);
@@ -31,7 +30,34 @@ public class UserController {
            e.printStackTrace();
             return "登录失败";
         }
-        return "登录成功";
+        Boolean isAdmin =  subject.hasRole("admin");
+        return "登录成功  :  " + isAdmin + "admin权限";
+    }
+
+
+    //-------------测试角色和权限方法------------------
+    @RequestMapping("/testRoles1")
+    @ResponseBody
+    public String testRoles1(){
+        return "testRoles1 成功 ！";
+    }
+
+    @RequestMapping("/testRoles")
+    @ResponseBody
+    public String testRoles(){
+        return "testRoles 成功 ！";
+    }
+
+    @RequestMapping("/testPermission1")
+    @ResponseBody
+    public String testPermission1(){
+        return "testPermission1 成功 ！";
+    }
+
+    @RequestMapping("/testPermission")
+    @ResponseBody
+    public String testPermission(){
+        return "testPermission 成功 ！";
     }
 
 }
