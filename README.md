@@ -2,9 +2,6 @@
 
 # 整理的一些源码学习和知识点的记录
 
-    如果您喜欢，请给颗star以资鼓励.  
-    同时也欢迎 PR ！
-
 
 ---
 
@@ -71,10 +68,12 @@
 
  1. mysql 
  
+# Redis
+1. [windows下redis的安装以及redisDesktopManager的安装及连接教程][35] 
 
 # shiro
- 1. [shiro 整合 spring][35] 
- 2. [shiro 自定义 realm demo][36]
+ 1. [shiro 整合 spring][36] 
+ 2. [shiro 自定义 realm demo][37]
 
 # 检索
 
@@ -90,9 +89,9 @@
 前面有些使用 `.java` 文件写的，后续会改成 `markdown` 语法的文本文件,这样看起来会比较清晰.
 
 
-> 另外还要附上 [wangkuiwu][37] 的blog地址,其基于 java 1.6 或 1.7 的源码做分析的.几乎是讲解了整个源码.内容更全.
+> 另外还要附上 [wangkuiwu][38] 的blog地址,其基于 java 1.6 或 1.7 的源码做分析的.几乎是讲解了整个源码.内容更全.
 
-> 另附 CSDN [潘威威][38] 的源码解析 blog
+> 另附 CSDN [潘威威][39] 的源码解析 blog
 
 
 
@@ -137,7 +136,8 @@
   [32]: https://github.com/static-mkk/something/blob/master/review/review_javapart.md
   [33]: https://github.com/static-mkk/something/blob/master/review/java_reflect.md
   [34]: https://github.com/static-mkk/something/tree/master/spring/spring-ioc
-  [35]: https://github.com/static-mkk/something/tree/master/shiro_about/shiro-spring
-  [36]: https://github.com/static-mkk/something/tree/master/shiro_about/shiro-customRealm
-  [37]: http://wangkuiwu.github.io
-  [38]: http://blog.csdn.net/panweiwei1994
+  [35]: https://github.com/static-mkk/something/blob/master/redis/windows%E4%B8%8Bredis%E7%9A%84%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8Aredisdesktop%E7%9A%84%E5%AE%89%E8%A3%85%E8%BF%9E%E6%8E%A5.md
+  [36]: https://github.com/static-mkk/something/tree/master/shiro_about/shiro-spring
+  [37]: https://github.com/static-mkk/something/tree/master/shiro_about/shiro-customRealm
+  [38]: http://wangkuiwu.github.io
+  [39]: http://blog.csdn.net/panweiwei1994
