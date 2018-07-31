@@ -1,0 +1,145 @@
+/*********************  swagger *************************/
+
+HandlerMethod 指的是spring mvc中，控制器对应的处理的handler  spring中的类
+    其内部成员    bean  为对应的控制器 (controller) 实例对象 或者 bean 的string 名称
+                  beanType 为控制器(controller)的class对象
+                  beanFactory  指spring mvc容器
+                  method  需要执行的方法 就是controller中 的 一个个方法
+
+
+SwaggerConfiguration  自己写的swaggerConfiguration类 主要是根据传进来的参数创建一个Documentation对象
+    内部成员 ： private String swaggerVersion;  swagger 版本
+                private String apiVersion;
+                private String basePath;
+   Documentation newDocumentation(..) 方法： 主要是创建一个 swagger 的 com.wordnik.swagger.core.Documentation 类对象
+   ControllerDocumentation newDocumentation( ..) 方法 ： 返回一个自定义的 ControllerDocumentation 类对象
+
+ControllerDocumentation : 继承自  Documentation
+    内部成员 ：  resource 就是 MvcApiResource
+    内部主要是  获取 Documentation 对象中的信息
+
+
+Documentation类   swagger中
+    内部成员 ： basePath ： 上下文路径 contextPath
+                apiListings ： Map<String,apiListing>   存放API列表集
+                apiVersion  ：
+                swaggerVersion ：
+
+ApiListing 类    swagger中 待补 存放api信息的类
+
+
+/***********************  blade  *******************************/
+
+
+RouteStruct :
+    Route mapping;    contrller 类上的mapping 路径
+    GetRoute getRoute;     GetRoute中的 uri
+    PostRoute postRoute;
+    PutRoute putRoute;
+    DeleteRoute deleteRoute;
+    String nameSpace;    /
+    String suffix;
+    Class<?> routeType;   controller 类的class对象
+    Object controller;    controller 类的实例对象
+    Method method;        controller 中的method方法  例如这里的login  :     @GetRoute("/ss")
+                                                                            public String Login(){ return "";}
+
+
+/*********** springfox mvc test 流程图  *************/
+
+debug springfox test文件，发现步骤如下：
+
+    1.注入一个自定义的conteoller ：DocumentationController 。
+        该controller 用于用户通过网页获取 api 信息
+        在该bean完成加载之后 ， 要向该bean中的成员属性  WebApplicationContext  MvcApiReader 中完成赋值.
+                WebApplicationContext： 上下文，拥有所有的 controller
+                MvcApiReader          ： 用于从该类的对象中读取缓存的api 信息
+                            即，所有的 api信息 封装在 MvcApiReader 对象中，所以，也因此，所有的从上线文中获取controller
+                            并封装到swagger 的类中，以及 赋值到 MvcApiReader 类的成员属性中 的操作都在MvcApiReader的构造器
+                            中完成. new MvcApiReader(wac, config);
+                            config : SwaggerConfiguration config = new SwaggerConfiguration(apiVersion,swaggerVersion,documentationBasePath);
+
+    2.  MvcApiReader类的解析
+     ----------------------- |||||||||||||||成员属性解析
+     	//spring mvc 上下文
+     	private final WebApplicationContext context;
+     	//自定义的swaggerConfiguration
+     	private final SwaggerConfiguration config;
+     	//所有的controller的map集合
+     	private Map<String, HandlerMapping> handlerMappingBeans;
+     	//swagger 中存放api信息的类  含有
+     	private Documentation resourceListing;
+     	//map key 为 controller 的class对象 ， value 为swagger相应的 DocumentationEndPoint对象
+     	// 													包含 uri 和 @Api 注解中的description
+     	private final Map<Class<?>,DocumentationEndPoint> resourceListCache = Maps.newHashMap();
+     	private final Map<Class<?>,ControllerDocumentation> apiCache = Maps.newHashMap();
+     ---------------------------------
+     new MvcApiReader(wac, config);    ||||||||||构造器方法解析
+        this.context = context;  赋值上下文
+        config = swaggerConfiguration;   赋值config 文件
+        //利用spring的工具类，把上下文中的所有controller取出来，放到成员属性 handlerMappingBeans 中
+        handlerMappingBeans = BeanFactoryUtils.beansOfTypeIncludingAncestors(this.context, HandlerMapping.class, true, false);
+
+        //解析的工作重点在这个方法中完成
+        buildMappingDocuments();
+        -----------------------------------||||||||||||  buildMappingDocuments（）解析
+            1. resourceListing = config.newDocumentation(); 新建  Documentation 类对象
+            2.循环遍历所有的 controller  ， processMethod((RequestMappingHandlerMapping) handlerMapping); 加工controller
+                ------------------------------|||||||||||||||||  processMethod（ ..） 解析 #####重点#####
+                HandlerMethod handlerMethod = entry.getValue();      controller 对象
+                RequestMappingInfo mappingInfo = entry.getKey();      该controller 的注解信息  如： {[/pets/findByTags],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}
+                MvcApiResource resource = new MvcApiResource(handlerMethod,config);利用controller 和 config 构建 MvcApiResource类
+                    ---------------------------||||||||||||||| MvcApiResource 解析
+                    MvcApiResource类    该类就是解析具体 controller 对象 的具体的 注解信息的，解析的是类对象上的注解，不是方法上的注解
+                    private final HandlerMethod handlerMethod;   controller 对象
+                    private final Class<?> controllerClass;      controller 对象对应的class对象
+                    private final SwaggerConfiguration configuration;  配置文件
+
+                if (resource.isInternalResource()) 判断是否是自己定义的controller，如果是，则跳出
+                				continue;
+                addApiListingIfMissing()  向成员属性中（即用于缓存的属性中）添加 api 信息  这里是类实例对象的上的注解信息，不是方法注解信息
+                    ------------------------||||||||||||||| addApiListingIfMissing() 解析
+                        DocumentationEndPoint endpoint = resource.describeAsEndpoint();  //构建了swager的DocumentationEndPoint对象，存放了api信息
+                        		if (endpoint != null)
+                        		{   //向缓存map中添加 相应的 controller class对象 和 DocumentationEndPoint对象
+                        			resourceListCache.put(resource.getControllerClass(),endpoint);
+                        			log.debug("Added resource listing: {}",resource.toString());
+                        			//向 resourceListing （Documentation）中添加DocumentationEndPoint对象
+                        			resourceListing.addApi(endpoint);
+                        		}
+
+                ControllerDocumentation apiDocumentation = getApiDocumentation(resource);创建自定义的ControllerDocumentation对象
+                    -------------------------------   ||||||||||||||||||||||||||
+                    getApiDocumentation(..) 解析
+                    向apiCache 缓存中放入该controller 对用的 ControllerDocumentation 的信息
+                    ControllerDocumentation emptyApiDocumentation = resource.createEmptyApiDocumentation();
+                    			if (emptyApiDocumentation != null)
+                    				apiCache.put(resource.getControllerClass(),emptyApiDocumentation);
+                    		}
+
+                    -----------------------------   ||||||||||||||||||||  ControllerDocumentation 解析
+                    public class ControllerDocumentation extends Documentation
+                    private final MvcApiResource resource;
+                    private final Map<String, com.wordnik.swagger.core.DocumentationEndPoint> endpointMap = Maps.newHashMap();
+
+            for (String requestUri : mappingInfo.getPatternsCondition().getPatterns())  //循环遍历mapping中的字符串数组
+            			{
+            				//向apiDocumentation 的 成员 map中添加 Map<String, com.wordnik.swagger.core.DocumentationEndPoint>信息
+            				DocumentationEndPoint endPoint = apiDocumentation.getEndPoint(requestUri);
+            				//向 DocumentationEndPoint 中添加 DocumentationOperation
+            				appendOperationsToEndpoint(mappingInfo,handlerMethod,endPoint);
+
+                        }
+                -------------------------||||||||||||||||||| appendOperationsToEndpoint(..解析);
+                appendOperationsToEndpoint(..);   就是解析controller的 方法上的注解信息
+                    ApiMethodReader methodDoc = new ApiMethodReader(handlerMethod);  //ApiMethodReader就是解析方法注解的工具类
+                            for (RequestMethod requestMethod : mappingInfo.getMethodsCondition().getMethods())//遍历controller的所有方法
+                            {
+                                //根据 RequestMethod 来获取一个 DocumentationOperation 对象
+                                DocumentationOperation operation = methodDoc.getOperation(requestMethod);
+                                //向DocumentationEndPoint 中添加 DocumentationOperation
+                                endPoint.addOperation(operation);
+                            }
+
+
+
