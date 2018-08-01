@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="costomJedisPool" class="redis.clients.jedis.JedisPool" >
+        <constructor-arg name="poolConfig" ref="jedisPoolConfig" />
+        <constructor-arg name="host" value="192.168.1.112" />
+        <constructor-arg name="port" value="6379" />
+     </bean>
+
+    <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig" >
+    </bean>
+
+    <!--配置一下jedisUtils bean-->
+    <bean id="jedisUtils" class="cn.kkcoder.utils.JedisUtils" >
+        <constructor-arg name="jedisPool" ref="costomJedisPool" />
+    </bean>
+
+</beans>

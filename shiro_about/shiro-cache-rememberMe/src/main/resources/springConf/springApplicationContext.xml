@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--引进来spring dao 的配置文件-->
+    <import resource="spring-dao.xml"/>
+    <!--引进来 spring - jedis 的配置文件 -->
+    <import resource="spring-jedis.xml" />
+
+    <!--扫描一下cache包中的缓存对像-->
+    <context:component-scan base-package="cn.kkcoder.cache" />
+
+    <!--spring 的 xml 配置文件-->
+    <!--创建shiro的filter -->
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean" >
+        <property name="securityManager" ref="securityManager"/>
+        <property name="loginUrl" value="login.jsp"/>
+        <property name="unauthorizedUrl" value="403.html"/>
+        <property name="filterChainDefinitions" >
+            <value>
+                /login.jsp = anon
+                /subLogin = anon
+                /testRoles1 = roles["admin","user"]
+                /testRoles = pFilter["admin","user"]
+                /testPermission = perms["user:delete"]
+                /testPermission1 = perms["user:delete","user:add"]
+                /* = authc
+            </value>
+        </property>
+    </bean>
+
+    <!--注入自定义的filter-->
+    <bean id="pFilter" class="cn.kkcoder.filter.PersonalFilter"/>
+
+    <!--创建 securitymanager bean
+        注意这里的 class 的路径是 org.apache.shiro.web.mgt.DefaultWebSecurityManager    这个是web包下的
+                              不是 org.apache.shiro.mgt.DefaultSecurityManager
+    -->
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="sessionManager" ref="sessionManager" />
+        <property name="realm" ref="realm"/>
+        <property name="cacheManager" ref="cacheManager" />
+        <property name="rememberMeManager" ref="rememberMeManager" />
+    </bean>
+
+    <!--创建 realm  对象-->
+    <bean id="realm" class="cn.kkcoder.realm.PersonalReam">
+        <property name="credentialsMatcher" ref="credentialsMatcher"/>
+    </bean>
+
+    <!--shrio 的 加密算法
+            加密的salt在PersonalRealm中设置了.
+    -->
+    <bean  id="credentialsMatcher" class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+        <property name="hashAlgorithmName" value="md5"/>
+        <property name="hashIterations" value="1"/>
+    </bean>
+
+    <!--添加sessionmanager的bean    修改成自定义的sessionManager -->
+    <!--<bean id="sessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager" >-->
+        <!--&lt;!&ndash;配置自定义的session DAO&ndash;&gt;-->
+        <!--<property name="sessionDAO" ref="sessionDao" />-->
+    <!--</bean>-->
+
+    <bean id="sessionManager" class="cn.kkcoder.session.PersonalSessionManager" >
+        <property name="sessionDAO" ref="sessionDao" />
+    </bean>
+    <bean id="sessionDao" class="cn.kkcoder.session.MySessionDao" />
+
+    <!--添加 缓存管理-->
+    <bean id="cacheManager" class="cn.kkcoder.cache.CacheManager" />
+
+    <!--设置自动登陆的remeberme 的相关 bean-->
+        <!--设置 shiro 的 cookieRemenberMeManager -->
+    <bean class="org.apache.shiro.web.mgt.CookieRememberMeManager" id="rememberMeManager" >
+        <property name="cookie" ref="simpleCookie" />
+     </bean>
+        <!--设置 shiro 的 SimpleCookie 对象 -->
+    <bean id="simpleCookie" class="org.apache.shiro.web.servlet.SimpleCookie" >
+        <constructor-arg value="rememberMe" />
+        <property name="maxAge" value="420000" />
+    </bean>
+
+
+
+
+</beans>
