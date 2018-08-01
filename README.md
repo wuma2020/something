@@ -10,73 +10,74 @@
 ## java源码学习
 ### 集合
 
-  - [java集合介绍][2]
-  - [ArrayList详解][3]
-  - [fast-fail机制详解][4]
-        - [fast-fail测试demo][5]
-  - [Linkedlist详解][6]
-  - [Vector详解][7]
-  - [Stack详解][8]
-  - [Map构架][9]
-  - [HashMap详解][10]
-     - [HashMap put逻辑总结][11]
-  - [HashMap与HashTable比较][12]
-  - [HashSet介绍][13]
+  - [java集合介绍][1]
+  - [ArrayList详解][2]
+  - [fast-fail机制详解][3]
+        - [fast-fail测试demo][4]
+  - [Linkedlist详解][5]
+  - [Vector详解][6]
+  - [Stack详解][7]
+  - [Map构架][8]
+  - [HashMap详解][9]
+     - [HashMap put逻辑总结][10]
+  - [HashMap与HashTable比较][11]
+  - [HashSet介绍][12]
 
 ### I/O 
-- [PipedOutputStream and PipedInputStream 详解][14]
-- [BufferInputStream_BufferOutputStream 详解][15]
-- [ByteArrayOutputStream介绍][16]
-- [FilterInputStream_FilterOutputStream介绍][17]
-- [FileOutputStream_FileInputStream demo][18]
-- [FileDescriptor demo][19]
+- [PipedOutputStream and PipedInputStream 详解][13]
+- [BufferInputStream_BufferOutputStream 详解][14]
+- [ByteArrayOutputStream介绍][15]
+- [FilterInputStream_FilterOutputStream介绍][16]
+- [FileOutputStream_FileInputStream demo][17]
+- [FileDescriptor demo][18]
 
 ### 多线程
 
 （整理自《java多线程编程核心》部分加了超链） 
-- [多线程基础概念][20]
-- [synchronized关键字][21] 
-- [线程等待与唤醒][22]
-- [interrupt 终止线程介绍][23]
-    - [interrupt demo][24]
-    - [interrupt flag 设置阻断demo][25]
-- [生产消费线程demo][26]
-- [synchronized非this锁][27]  
-- [volatile介绍][28]
-- [join介绍][29]
-- [Condition的使用以及其生产消费线程示例][30] 
-- [condition实现线程顺序执行][31]
+- [多线程基础概念][19]
+- [synchronized关键字][20] 
+- [线程等待与唤醒][21]
+- [interrupt 终止线程介绍][22]
+    - [interrupt demo][23]
+    - [interrupt flag 设置阻断demo][24]
+- [生产消费线程demo][25]
+- [synchronized非this锁][26]  
+- [volatile介绍][27]
+- [join介绍][28]
+- [Condition的使用以及其生产消费线程示例][29] 
+- [condition实现线程顺序执行][30]
 
 ### JUC锁
-    -   [JUC之公平锁详解1][32]
-    -   [LockSupport 介绍][33]
-    -   [ReentrantReadWriteLock 介绍][34]
+-   [JUC之公平锁详解1][31]
+-   [LockSupport 介绍][32]
+-   [ReentrantReadWriteLock 介绍][33]
 
 ---
 
 # java基础知识点整理
 
-1. [java基础知识点整理][35]
+1. [java基础知识点整理][34]
 
 # java 反射
- 1. [java reflect 使用介绍][36]
+ 1. [java reflect 使用介绍][35]
 
 # jvm 
 1. 待加
 
 # spring相关
-1. [spring IOC 简易版][37]  非常推荐学习
+1. [spring IOC 简易版][36]  非常推荐学习
 
 # MYSQL
 
  1. mysql 
  
 # Redis
-1. [windows下redis的安装以及redisDesktopManager的安装及连接教程][38] 
+1. [windows下redis的安装以及redisDesktopManager的安装及连接教程][37] 
 
 # shiro
- 1. [shiro 整合 spring][39] 
- 2. [shiro 自定义 realm demo][40]
+ 1. [shiro 自定义 realm demo][38]
+ 2. [shiro 整合 spring][39] 
+ 3. [shiro 会话管理][40]
 
 # 检索
 
@@ -105,45 +106,45 @@
         
 
 
-  [1]: i/o
-  [2]: https://github.com/static-mkk/java8SourceLearn/blob/master/%E9%9B%86%E5%90%88/JavaCollection_.java
-  [3]: https://github.com/static-mkk/java8SourceLearn/blob/master/%E9%9B%86%E5%90%88/ArrayListDetail.java
-  [4]: https://github.com/static-mkk/java8SourceLearn/blob/master/%E9%9B%86%E5%90%88/fail_fast_detail.md
-  [5]: https://github.com/static-mkk/java8SourceLearn/blob/master/%E9%9B%86%E5%90%88/fail_fast_demo.java
-  [6]: https://github.com/static-mkk/java8SourceLearn/blob/master/%E9%9B%86%E5%90%88/LinkedListDeatil.java
-  [7]: https://github.com/static-mkk/java8SourceLearn/blob/master/%E9%9B%86%E5%90%88/VectorDetail.java
-  [8]: https://github.com/static-mkk/java8SourceLearn/blob/master/%E9%9B%86%E5%90%88/StackDetail.java
-  [9]: https://github.com/static-mkk/java8SourceLearn/blob/master/%E9%9B%86%E5%90%88/Map%E6%9E%84%E6%9E%B6%E8%AF%A6%E8%A7%A3.md
-  [10]: https://github.com/static-mkk/java8SourceLearn/blob/master/%E9%9B%86%E5%90%88/HashMap%E8%AF%A6%E8%A7%A3.md
-  [11]: https://github.com/static-mkk/java8SourceLearn/blob/master/%E9%9B%86%E5%90%88/HashMap%E5%8E%9F%E7%90%86%E6%80%BB%E7%BB%93.md
-  [12]: https://github.com/static-mkk/java8SourceLearn/blob/master/%E9%9B%86%E5%90%88/HashTable_HashMap%E6%AF%94%E8%BE%83.md
-  [13]: https://github.com/static-mkk/java8SourceLearn/blob/master/%E9%9B%86%E5%90%88/HashSet%E4%BB%8B%E7%BB%8D.md
-  [14]: https://github.com/static-mkk/java8SourceLearn/blob/master/I.O/PipedInputStream_PipedOutputStream.md
-  [15]: https://github.com/static-mkk/java8SourceLearn/blob/master/I.O/BufferInputStream_BufferOutputStream.md
-  [16]: https://github.com/static-mkk/java8SourceLearn/blob/master/I.O/ByteArrayOutputStream%E8%AF%A6%E8%A7%A3.md
-  [17]: https://github.com/static-mkk/java8SourceLearn/blob/master/I.O/FilterInputStream_FilterOutputStream.md
-  [18]: https://github.com/static-mkk/java8SourceLearn/blob/master/I.O/FileOutputStream_FileInputStream_demo.md
-  [19]: https://github.com/static-mkk/java8SourceLearn/blob/master/I.O/FileDescriptor_demo.md
-  [20]: https://github.com/static-mkk/java8SourceLearn/blob/master/thread/%E5%A4%9A%E7%BA%BF%E7%A8%8B_%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5.md
-  [21]: https://github.com/static-mkk/java8SourceLearn/blob/master/thread/synchronized%E5%85%B3%E9%94%AE%E5%AD%97.md
-  [22]: https://github.com/static-mkk/java8SourceLearn/blob/master/thread/%E7%BA%BF%E7%A8%8B%E7%AD%89%E5%BE%85%E4%B8%8E%E5%94%A4%E9%86%92.md
-  [23]: https://github.com/static-mkk/java8SourceLearn/blob/master/thread/Interrupt%E7%BB%88%E6%AD%A2%E7%BA%BF%E7%A8%8B%E4%BB%8B%E7%BB%8D.md
-  [24]: https://github.com/static-mkk/java8SourceLearn/blob/master/thread/InterruptDemoOne.java
-  [25]: https://github.com/static-mkk/java8SourceLearn/blob/master/thread/FlagInterruptThread.java
-  [26]: https://github.com/static-mkk/java8SourceLearn/blob/master/thread/%E7%94%9F%E4%BA%A7%E6%B6%88%E8%B4%B9%E7%BA%BF%E7%A8%8Bdemo.md
-  [27]: https://mp.csdn.net/mdeditor/79843747
-  [28]: https://mp.csdn.net/mdeditor/79901661
-  [29]: https://mp.csdn.net/mdeditor/79920177
-  [30]: https://github.com/static-mkk/java8SourceLearn/blob/master/thread/Condition%E7%9A%84%E4%BD%BF%E7%94%A8%E4%BB%A5%E5%8F%8A%E5%85%B6%E7%94%9F%E4%BA%A7%E6%B6%88%E8%B4%B9%E7%BA%BF%E7%A8%8B%E7%A4%BA%E4%BE%8B.md
-  [31]: https://github.com/static-mkk/java8SourceLearn/blob/master/thread/condition%E5%AE%9E%E7%8E%B0%E7%BA%BF%E7%A8%8B%E9%A1%BA%E5%BA%8F.md
-  [32]: https://github.com/static-mkk/something/blob/master/thread/JUC%E4%B9%8B%E5%85%AC%E5%B9%B3%E9%94%81%E8%AF%A6%E8%A7%A31.md
-  [33]: https://github.com/static-mkk/something/blob/master/thread/JUC/LockSupport.md
-  [34]: https://github.com/static-mkk/something/blob/master/thread/JUC/ReentrantReadWriteLock.md
-  [35]: https://github.com/static-mkk/something/blob/master/review/review_javapart.md
-  [36]: https://github.com/static-mkk/something/blob/master/review/java_reflect.md
-  [37]: https://github.com/static-mkk/something/tree/master/spring/spring-ioc
-  [38]: https://github.com/static-mkk/something/blob/master/redis/windows%E4%B8%8Bredis%E7%9A%84%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8Aredisdesktop%E7%9A%84%E5%AE%89%E8%A3%85%E8%BF%9E%E6%8E%A5.md
+  [1]: https://github.com/static-mkk/java8SourceLearn/blob/master/%E9%9B%86%E5%90%88/JavaCollection_.java
+  [2]: https://github.com/static-mkk/java8SourceLearn/blob/master/%E9%9B%86%E5%90%88/ArrayListDetail.java
+  [3]: https://github.com/static-mkk/java8SourceLearn/blob/master/%E9%9B%86%E5%90%88/fail_fast_detail.md
+  [4]: https://github.com/static-mkk/java8SourceLearn/blob/master/%E9%9B%86%E5%90%88/fail_fast_demo.java
+  [5]: https://github.com/static-mkk/java8SourceLearn/blob/master/%E9%9B%86%E5%90%88/LinkedListDeatil.java
+  [6]: https://github.com/static-mkk/java8SourceLearn/blob/master/%E9%9B%86%E5%90%88/VectorDetail.java
+  [7]: https://github.com/static-mkk/java8SourceLearn/blob/master/%E9%9B%86%E5%90%88/StackDetail.java
+  [8]: https://github.com/static-mkk/java8SourceLearn/blob/master/%E9%9B%86%E5%90%88/Map%E6%9E%84%E6%9E%B6%E8%AF%A6%E8%A7%A3.md
+  [9]: https://github.com/static-mkk/java8SourceLearn/blob/master/%E9%9B%86%E5%90%88/HashMap%E8%AF%A6%E8%A7%A3.md
+  [10]: https://github.com/static-mkk/java8SourceLearn/blob/master/%E9%9B%86%E5%90%88/HashMap%E5%8E%9F%E7%90%86%E6%80%BB%E7%BB%93.md
+  [11]: https://github.com/static-mkk/java8SourceLearn/blob/master/%E9%9B%86%E5%90%88/HashTable_HashMap%E6%AF%94%E8%BE%83.md
+  [12]: https://github.com/static-mkk/java8SourceLearn/blob/master/%E9%9B%86%E5%90%88/HashSet%E4%BB%8B%E7%BB%8D.md
+  [13]: https://github.com/static-mkk/java8SourceLearn/blob/master/I.O/PipedInputStream_PipedOutputStream.md
+  [14]: https://github.com/static-mkk/java8SourceLearn/blob/master/I.O/BufferInputStream_BufferOutputStream.md
+  [15]: https://github.com/static-mkk/java8SourceLearn/blob/master/I.O/ByteArrayOutputStream%E8%AF%A6%E8%A7%A3.md
+  [16]: https://github.com/static-mkk/java8SourceLearn/blob/master/I.O/FilterInputStream_FilterOutputStream.md
+  [17]: https://github.com/static-mkk/java8SourceLearn/blob/master/I.O/FileOutputStream_FileInputStream_demo.md
+  [18]: https://github.com/static-mkk/java8SourceLearn/blob/master/I.O/FileDescriptor_demo.md
+  [19]: https://github.com/static-mkk/java8SourceLearn/blob/master/thread/%E5%A4%9A%E7%BA%BF%E7%A8%8B_%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5.md
+  [20]: https://github.com/static-mkk/java8SourceLearn/blob/master/thread/synchronized%E5%85%B3%E9%94%AE%E5%AD%97.md
+  [21]: https://github.com/static-mkk/java8SourceLearn/blob/master/thread/%E7%BA%BF%E7%A8%8B%E7%AD%89%E5%BE%85%E4%B8%8E%E5%94%A4%E9%86%92.md
+  [22]: https://github.com/static-mkk/java8SourceLearn/blob/master/thread/Interrupt%E7%BB%88%E6%AD%A2%E7%BA%BF%E7%A8%8B%E4%BB%8B%E7%BB%8D.md
+  [23]: https://github.com/static-mkk/java8SourceLearn/blob/master/thread/InterruptDemoOne.java
+  [24]: https://github.com/static-mkk/java8SourceLearn/blob/master/thread/FlagInterruptThread.java
+  [25]: https://github.com/static-mkk/java8SourceLearn/blob/master/thread/%E7%94%9F%E4%BA%A7%E6%B6%88%E8%B4%B9%E7%BA%BF%E7%A8%8Bdemo.md
+  [26]: https://mp.csdn.net/mdeditor/79843747
+  [27]: https://mp.csdn.net/mdeditor/79901661
+  [28]: https://mp.csdn.net/mdeditor/79920177
+  [29]: https://github.com/static-mkk/java8SourceLearn/blob/master/thread/Condition%E7%9A%84%E4%BD%BF%E7%94%A8%E4%BB%A5%E5%8F%8A%E5%85%B6%E7%94%9F%E4%BA%A7%E6%B6%88%E8%B4%B9%E7%BA%BF%E7%A8%8B%E7%A4%BA%E4%BE%8B.md
+  [30]: https://github.com/static-mkk/java8SourceLearn/blob/master/thread/condition%E5%AE%9E%E7%8E%B0%E7%BA%BF%E7%A8%8B%E9%A1%BA%E5%BA%8F.md
+  [31]: https://github.com/static-mkk/something/blob/master/thread/JUC%E4%B9%8B%E5%85%AC%E5%B9%B3%E9%94%81%E8%AF%A6%E8%A7%A31.md
+  [32]: https://github.com/static-mkk/something/blob/master/thread/JUC/LockSupport.md
+  [33]: https://github.com/static-mkk/something/blob/master/thread/JUC/ReentrantReadWriteLock.md
+  [34]: https://github.com/static-mkk/something/blob/master/review/review_javapart.md
+  [35]: https://github.com/static-mkk/something/blob/master/review/java_reflect.md
+  [36]: https://github.com/static-mkk/something/tree/master/spring/spring-ioc
+  [37]: https://github.com/static-mkk/something/blob/master/redis/windows%E4%B8%8Bredis%E7%9A%84%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8Aredisdesktop%E7%9A%84%E5%AE%89%E8%A3%85%E8%BF%9E%E6%8E%A5.md
+  [38]: https://github.com/static-mkk/something/tree/master/shiro_about/shiro-customRealm
   [39]: https://github.com/static-mkk/something/tree/master/shiro_about/shiro-spring
-  [40]: https://github.com/static-mkk/something/tree/master/shiro_about/shiro-customRealm
+  [40]: https://github.com/static-mkk/something/tree/master/shiro_about/shiro-sessionmanager
   [41]: http://wangkuiwu.github.io
   [42]: http://blog.csdn.net/panweiwei1994
