@@ -65,21 +65,22 @@
     （整理自《深入理解java虚拟机》 周志明·第二版）
 1. [第二章-java内存区域与内存溢出异常][36]
 2. [第六章-类文件结构][37]
+3. [第七章-虚拟机-类加载机制][38]
 
 # spring相关
-1. [spring IOC 简易版][38]  非常推荐学习
+1. [spring IOC 简易版][39]  非常推荐学习
 
 # MYSQL
 
  1. mysql 
  
 # Redis
-1. [windows下redis的安装以及redisDesktopManager的安装及连接教程][39] 
+1. [windows下redis的安装以及redisDesktopManager的安装及连接教程][40] 
 
 # shiro
- 1. [shiro 自定义 realm demo][40]
- 2. [shiro 整合 spring][41] 
- 3. [shiro 会话管理][42]
+ 1. [shiro 自定义 realm demo][41]
+ 2. [shiro 整合 spring][42] 
+ 3. [shiro 会话管理][43]
 
 # 检索
 
@@ -95,9 +96,9 @@
 前面有些使用 `.java` 文件写的，后续会改成 `markdown` 语法的文本文件,这样看起来会比较清晰.
 
 
-> 另外还要附上 [wangkuiwu][43] 的blog地址,其基于 java 1.6 或 1.7 的源码做分析的.几乎是讲解了整个源码.内容更全.
+> 另外还要附上 [wangkuiwu][44] 的blog地址,其基于 java 1.6 或 1.7 的源码做分析的.几乎是讲解了整个源码.内容更全.
 
-> 另附 CSDN [潘威威][44] 的源码解析 blog
+> 另附 CSDN [潘威威][45] 的源码解析 blog
 
 
 
@@ -145,10 +146,11 @@
   [35]: https://github.com/static-mkk/something/blob/master/review/java_reflect.md
   [36]: https://github.com/static-mkk/something/blob/master/jvm/%E7%AC%AC%E4%BA%8C%E7%AB%A0-java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%BC%82%E5%B8%B8.md
   [37]: https://github.com/static-mkk/something/blob/master/jvm/%E7%AC%AC%E5%85%AD%E7%AB%A0-%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84.md
-  [38]: https://github.com/static-mkk/something/tree/master/spring/spring-ioc
-  [39]: https://github.com/static-mkk/something/blob/master/redis/windows%E4%B8%8Bredis%E7%9A%84%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8Aredisdesktop%E7%9A%84%E5%AE%89%E8%A3%85%E8%BF%9E%E6%8E%A5.md
-  [40]: https://github.com/static-mkk/something/tree/master/shiro_about/shiro-customRealm
-  [41]: https://github.com/static-mkk/something/tree/master/shiro_about/shiro-spring
-  [42]: https://github.com/static-mkk/something/tree/master/shiro_about/shiro-sessionmanager
-  [43]: http://wangkuiwu.github.io
-  [44]: http://blog.csdn.net/panweiwei1994
+  [38]: https://github.com/static-mkk/something/blob/master/jvm/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E8%99%9A%E6%8B%9F%E6%9C%BA-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6.md
+  [39]: https://github.com/static-mkk/something/tree/master/spring/spring-ioc
+  [40]: https://github.com/static-mkk/something/blob/master/redis/windows%E4%B8%8Bredis%E7%9A%84%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8Aredisdesktop%E7%9A%84%E5%AE%89%E8%A3%85%E8%BF%9E%E6%8E%A5.md
+  [41]: https://github.com/static-mkk/something/tree/master/shiro_about/shiro-customRealm
+  [42]: https://github.com/static-mkk/something/tree/master/shiro_about/shiro-spring
+  [43]: https://github.com/static-mkk/something/tree/master/shiro_about/shiro-sessionmanager
+  [44]: http://wangkuiwu.github.io
+  [45]: http://blog.csdn.net/panweiwei1994
