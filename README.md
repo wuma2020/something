@@ -68,6 +68,9 @@
 
 # jvm 
     （整理自《深入理解java虚拟机》 周志明·第二版）
+    
+
+0. [深入理解java虚拟机 - 全](https://github.com/static-mkk/something/blob/master/jvm/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E8%99%9A%E6%8B%9F%E6%9C%BA.pdf)
 1. [第二章-java内存区域与内存溢出异常][37]
 2. [第六章-类文件结构][38]
 3. [第七章-虚拟机-类加载机制][39]
