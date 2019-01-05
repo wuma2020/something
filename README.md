@@ -13,7 +13,7 @@
   - [java集合介绍][1]
   - [ArrayList详解][2]
   - [fast-fail机制详解][3]
-        - [fast-fail测试demo][4]
+       - [fast-fail测试demo][4]
   - [Linkedlist详解][5]
   - [Vector详解][6]
   - [Stack详解][7]
@@ -47,14 +47,16 @@
 - [Condition的使用以及其生产消费线程示例][29] 
 - [condition实现线程顺序执行][30]
 
+### java并发编程的艺术
+-   [java并发编程的艺术](https://github.com/static-mkk/something/blob/master/thread/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E7%9A%84%E8%89%BA%E6%9C%AF.pdf)
+
+
 ### JUC锁
 -   [JUC之公平锁详解1][31]
 -   [LockSupport 介绍][32]
 -   [ReentrantReadWriteLock 介绍][33]
 
 
-### java并发编程的艺术
--   [java并发编程的艺术](https://github.com/static-mkk/something/blob/master/thread/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E7%9A%84%E8%89%BA%E6%9C%AF.pdf)
 
 ---
 
@@ -80,7 +82,9 @@
 
 # MYSQL
 
- 1. mysql 
+
+1. [深入浅出MySQL](https://github.com/static-mkk/something/blob/master/mysql/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAMySQL.pdf "深入浅出MySQL")
+2.  [MySQL技术内幕：innodb存储引擎](https://github.com/static-mkk/something/blob/master/mysql/MySQL%E6%8A%80%E6%9C%AF%E5%86%85%E5%B9%95%EF%BC%9Ainnodb%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E.pdf "MySQL技术内幕：innodb存储引擎") 
  
 # Redis
 1. [windows下redis的安装以及redisDesktopManager的安装及连接教程][41] 
