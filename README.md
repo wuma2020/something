@@ -1,9 +1,9 @@
 
 
 
-| 集合 | I/O |多线程 | JUC锁|java基础知识点整理|jvm |spring 相关 |MYSQL |shiro|检索
+| 集合 | I/O |多线程 |NIO|java基础知识点整理|jvm |spring 相关 |MYSQL |分布式存储|检索
 | :----: | :----: | :----: | :----: | :----: | :----: | :----: |:----: | :----: | :----: | 
-| [集合](#集合) | [I/O](#I/O)|[多线程](#多线程) | [JUC锁](#JUC锁)|[java基础知识点整理](#java基础知识点整理) |[jvm ](#jvm )| [spring相关](#spring相关)|[MYSQL](#MYSQL)|[分布式存储](#分布式存储)|[GO](#GO)|
+| [集合](#集合) | [I/O](#I/O)|[多线程](#多线程) | [NIO](#NIO)|[java基础知识点整理](#java基础知识点整理) |[jvm ](#jvm )| [spring相关](#spring相关)|[MYSQL](#MYSQL)|[分布式存储](#分布式存储)|[GO](#GO)|
 
 ---
 
@@ -31,6 +31,7 @@
 - [FileOutputStream_FileInputStream demo][17]
 - [FileDescriptor demo][18]
 
+
 ### 多线程
 
 （整理自《java多线程编程核心》部分加了超链） 
@@ -56,7 +57,11 @@
 -   [LockSupport 介绍][32]
 -   [ReentrantReadWriteLock 介绍][33]
 
+-----
 
+### NIO
+
+- [JAVA NIO][47]
 
 ---
 
@@ -172,3 +177,4 @@
   [44]: https://github.com/static-mkk/something/tree/master/shiro_about/shiro-sessionmanager
   [45]: http://wangkuiwu.github.io
   [46]: http://blog.csdn.net/panweiwei1994
+  [47]: https://github.com/static-mkk/something/tree/master/%E8%8B%B1%E6%96%87%E8%B5%84%E6%96%99%E9%98%85%E8%AF%BB%E8%AE%B0%E5%BD%95%E7%BF%BB%E8%AF%91%E6%80%BB%E7%BB%93/java_nio
