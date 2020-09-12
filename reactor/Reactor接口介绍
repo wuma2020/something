@@ -1,0 +1,38 @@
+1.org.reactivestreams.Publisher<T> 接口
+public interface Publisher<T> {
+public void subscribe(Subscriber<? super T> s);
+}
+
+i.一个生产者，可能生产一个存放元素的无界队列；然后根据订阅者（Subscriber）的需求，发布给订阅者。
+ii.一个发布者可以在不通的时间点，备多个订阅者订阅，通过Publisher#subscribe方法。
+iii.public void subscribe(Subscriber<? super T> s);	
+订阅者 request 发布者开始流动数据；这个方法是一个工厂方法，可以被多次调用，每次都会开启一个新的Subscription。	每个Subscription都会只为一个Subscriber服务。每个Subscriber应该只订阅Publisher一次。如果Publisher拒绝这个Subscription或者失败，他会发出一个error，通过Subscriber#onError。
+
+2.org.reactivestreams.Subscriber<T> 接口
+public interface Subscriber<T> {
+public void onSubscribe(Subscription s);
+public void onNext(T t);
+public void onError(Throwable t);
+public void onComplete();
+}
+
+i.一旦一个Subscriber的实例，调用Publisher#subscribe方法，就会触发Subscriber#onSubscribe(Subscription s).在Subscription#request(long)之前，不会被通知。一次或者多次的调用#onNext方法，通过Subscription#request（long）方法。调用一次#onError或者onComplete，当发出一个终止信号时。以后也不会在有别的事件了。
+ii.    public void onSubscribe(Subscription s);当Publisher#subscrib被调用时，触发这个方法。不会有数据流动，直到Subscripation#request(long)方法被调用。一个Subscriber的实例，将会通过调用Subscription#request(long)来获取想要的更多的数据。Publisher只会对request()方法做出响应。
+iii.onNext(T)；Publisher将会对Subscription#request做出响应，然后通知该订阅者实例的onNext（T t）方法，传入数据t。具体调用多少次，要看request(long)中想要多少数据，以及，发布者有多少数据。
+iv.    public void onError(Throwable t);当失败的终止命令发出时，不会在进行其他事件的处理，即使Subscription#request再次调用。订阅结束。
+v.public void onComplete(); 成功的终止命令，不会在进行其他事件的处理，即使Subscription#request再次调用。订阅结束。
+
+3.org.reactivestreams.Subscription
+public interface Subscription {
+public void request(long n);
+public void cancel();
+}
+
+i.该接口表示一个订阅者订阅一个发布者。只能被单个订阅者使用。他既可以通知订阅数据，也可以取消数据。
+ii.public void request(long n);	
+在request(long n);方法调用之前，Publisher不会收到任何事件。就是向Publisher要数据的。
+iii.public void cancel();让发布者停止发送数据，并且清理上游数据源。
+
+
+
+
