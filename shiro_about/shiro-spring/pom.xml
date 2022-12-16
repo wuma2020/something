@@ -13,7 +13,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <springversion>4.1.6.RELEASE</springversion>
+    <springversion>5.2.20.RELEASE</springversion>
     <shiroversion>1.5.0</shiroversion>
   </properties>
 
